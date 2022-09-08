@@ -297,7 +297,7 @@ class Book:
         print("---------------------------------")
         print("Wybierz opcję: ")
         back = int(input("1 - Powrót do menu głównego \n"
-                     "2 - Wyszukaj książki ponownie"))
+                     "2 - Wyszukaj książki ponownie \n"))
 
         if back == 1:
             return 1

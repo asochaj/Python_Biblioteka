@@ -262,11 +262,11 @@ def menu_librarian(name,user_id):
             os.system('cls')
             print("--------EDYTUJ KSIĄŻKE--------")
 
-            book_id = input("Podaj book_id książki: ")
+            
             b1 = Book()
-            search = b1.book_search_as(book_id)
-            menu_librarian_book_edition(search[1], search[0][0], search[0][1], search[0][2], search[0][3], search[0][4], search[0][5], search[0][6], search[0][7], search[0][8], search[0][9], name,user_id)
-
+            search = b1.book_selection()
+            menu_librarian_book_edition(search[0], search[1], search[2], search[3], search[4], search[5],
+                                        search[6], search[7], search[8], search[9], search[10], name)
 
 
 
@@ -462,6 +462,4 @@ def menu_library():
 
 if __name__ == "__main__":
     menu_library()
-#Artu aaaaa
-
 

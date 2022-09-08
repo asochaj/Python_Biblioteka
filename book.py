@@ -296,10 +296,14 @@ class Book:
         db_msql.close()
         print("---------------------------------")
         print("Wybierz opcję: ")
-        back = input("1 - Powrót do menu głównego ")
+        back = int(input("1 - Powrót do menu głównego \n"
+                     "2 - Wyszukaj książki ponownie"))
 
         if back == 1:
             return 1
+        elif back == 2:
+            return 2
+
 
     def book_selection(self):
         """Wywołanie metody powoduje wybranie książki o podanym parametrze book_id"""
@@ -353,11 +357,8 @@ class Book:
                       f"state: {self.state} (1-dostępna,2-zarezerwowana,3-wypożyczona)\n")
 
                 print("---------------------------------")
-                print("Wybierz opcję: ")
-                back = input("1 - Powrót do menu głównego ")
 
-                if back == 1:
-                    return 1
+                    return row
             else:
                 print(f"\n Książka o podanym id: {book_id} nie występuje w bazie\n")
                 time.sleep(5)
@@ -721,37 +722,3 @@ class Book:
 
         print(result, book_id)
         return result,book_id
-# Test dodania książki do listy - działa :)
-# Book1 = Book()
-# print(Book1.book_add())
-#
-# # Test usunięcia książki z listy - działa :)
-# print(Book1.book_delete())
-
-# Test aktualizacji książki z listy - działa :)
-# print(Book1.book_update())
-
-# Test funkcji book_search - działa :)
-# print(book_search())
-
-# Test funkcji book_selection - działa :)
-# Book1 = Book()
-# print(Book1.book_selection())
-
-# # Test funkcji book_booking - działa :)
-# print(Book1.book_booking())
-
-# Test funkcji book_borrowing - działa :)
-# print(Book1.book_borrowing())
-
-# Test funkcji book_review_add - działa :)
-# print(Book1.book_review_add())
-
-# Test funkcji book_review_show - działa :)
-# print(Book1.book_review_show())
-
-# Test funkcji book_return_booking - działa :)
-# print(Book1.book_return_booking())
-
-# Test funkcji book_return_borrowing - działa :)
-# print(Book1.book_return_borrowing())

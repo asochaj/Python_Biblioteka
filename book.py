@@ -8,7 +8,7 @@ import time
 import pyodbc
 
 serwer = "Driver={SQL Server}; " \
-             "Server=.\SQLEXPRESS; " \   #zmiana - nie trzeba wpisaywać nazwy komputera :)
+             "Server=.\SQLEXPRESS; " \
              "Database=biblioteka; " \
              "Trusted_connection =yes; "
 
@@ -355,10 +355,10 @@ class Book:
                       f"year: {self.published_year}\n"
                       f"description: {self.description}\n"                           
                       f"state: {self.state} (1-dostępna,2-zarezerwowana,3-wypożyczona)\n")
-
+                
                 print("---------------------------------")
-
-                    return row
+                return row
+                    
             else:
                 print(f"\n Książka o podanym id: {book_id} nie występuje w bazie\n")
                 time.sleep(5)

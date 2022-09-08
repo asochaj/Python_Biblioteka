@@ -156,7 +156,7 @@ class Book:
         """Wywołanie metody powoduje aktualizację danych dotyczących kasiążki o wskazanym book_id"""
         # Opcja powinna być dostępna tylko po wejściu w daną książkę!
 
-         old_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
+        old_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
                           self.published_year,self.description,self.state]
 
         self.ISBN = input("Zaktualizuj kod ISBN książki lub kliknij enter: ")
@@ -354,10 +354,10 @@ class Book:
                       f"year: {self.published_year}\n"
                       f"description: {self.description}\n"                           
                       f"state: {self.state} (1-dostępna,2-zarezerwowana,3-wypożyczona)\n")
-                
+
                 print("---------------------------------")
                 return row
-                    
+
             else:
                 print(f"\n Książka o podanym id: {book_id} nie występuje w bazie\n")
                 time.sleep(5)
@@ -543,6 +543,7 @@ class Book:
         for row in wynik_zapytania:
             if row[0]>0:
                 i += 1
+
                 # załadowanie wartości do instancji klasy Book
                 review_id = row[0]
                 stars = row[1]

@@ -108,9 +108,8 @@ class Book:
 
         # Zamknięcie połączenia z bazą
         db_msql.close()
-        os.system('csl')
-        print(f"Książka {self.title} została dodana do bazy \n")
-
+        os.system('cls')
+        print(f"Dane książki o id {self.book_id} zostały zaktualizowane \n")
         print("---------------------------------")
         print("Wybierz opcję: ")
         back = input("1 - Powrót do menu głównego ")

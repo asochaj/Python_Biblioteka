@@ -4,6 +4,139 @@ from book import Book
 import os
 import time
 
+def menu_reader_book_edition(book_id, bk_isbn, bk_title, bk_pages, bk_cover, bk_book_genre, bk_thumbnail,
+                                bk_publisher, bk_published_year, bk_description, bk_state, name, user_id):
+    os.system('cls')
+    running = True
+    while running:
+        os.system('cls')
+        print(f"Twoja książka o id {book_id} to: "
+              f"\n ISBN: {bk_isbn}, "
+              f"\n Tytuł: {bk_title},"
+              f"\n Liczba stron: {bk_pages} "
+              f"\n Okładka: {bk_cover}"
+              f"\n Gatunek: {bk_book_genre}"
+              f"\n Thumbnail: {bk_thumbnail}"
+              f"\n Wydawnictwo: {bk_publisher}"
+              f"\n Rok wydania: {bk_published_year}"
+              f"\n Opis: {bk_description}"
+              f"\n Status: {bk_state}")
+        print("\n")
+        print("--------MENU EDYCJI KSIĄŻKI--------")
+        print(""
+
+              "\n 1 - Wypożycz książkę"
+              "\n 2 - Zarezerwuj książkę"
+              "\n 3 - Dodaj recenzje"
+              "\n 4 - Pokaż recenzję"
+              "\n 5 - Wróć do menu głównego"
+
+              )
+        print("\n")
+        menu = int(input("Wybierz opcję edycji książki: \n"))
+
+        book = Book(book_id=book_id, ISBN=bk_isbn, title=bk_title, pages=bk_pages, cover=bk_cover,
+                    book_genre=bk_book_genre, thumbnail=bk_thumbnail,
+                    publisher=bk_publisher, published_year=bk_published_year, description=bk_description,
+                    state=bk_state)
+
+        if menu == 1:
+            os.system('cls')
+            print("--------WYPOŻYCZ KSIĄŻKĘ--------")
+            borrow = book.book_borrowing(user_id)
+            if borrow == 1:
+                os.system('cls')
+                pass
+
+        elif menu == 2:
+            os.system('cls')
+            print("--------ZAREZERWUJ KSIĄŻKĘ--------")
+            booking = book.book_booking(user_id)
+            if booking == 1:
+                os.system('cls')
+                pass
+
+        elif menu == 3:
+            os.system('cls')
+            print("--------DODAJ RECENZJĘ--------")
+            review = book.book_review_add(user_id)
+            if review == 1:
+                os.system('cls')
+                pass
+
+
+        elif menu == 4:
+            os.system('cls')
+            print("--------POKAŻ RECENZJĘ--------")
+            review_show = book.book_review_show()
+            if review_show == 1:
+                os.system('cls')
+                pass
+
+        elif menu == 5:
+            print("--------PRZEJDŹ DO MENU GŁÓWNEGO--------")
+            os.system('cls')
+            menu_reader(name, user_id)
+
+def reader_library_card(name, user_id):
+    os.system('cls')
+    running = True
+    while running:
+        os.system('cls')
+        print("--------TWOJA KARTA BIBLIOTECZNA--------")
+        print(""
+
+              "\n 1 - Wyświetl zarezerwowane książki"
+              "\n 2 - Wyświetl wypożyczone książki"
+              "\n 3 - Wyświetl kary za przekroczenie terminu"
+              "\n 4 - Wróć do menu głównego"
+
+              )
+        print("\n")
+        menu = int(input("Wybierz opcję edycji książki: \n"))
+        user = User()
+
+        if menu == 1:
+            os.system('cls')
+            print("--------TWOJE ZAREZERWOWANE KSIĄŻKI--------")
+            booking = user.user_booking(user_id)
+            if booking == 1:
+                os.system('cls')
+                pass
+
+
+        elif menu == 2:
+
+            os.system('cls')
+            print("--------TWOJE WYPOŻYCZONE KSIĄŻKI--------")
+            borrowing = user.user_borrowing(user_id)
+
+            if borrowing == 2:
+                os.system('cls')
+                pass
+
+            elif borrowing == 1:
+                book_id = int(input("Podaj id książki, którą chcesz przedłużyć: "))
+                time = user.user_longer_endtime(user_id, book_id)
+                if time == 1:
+                    os.system('cls')
+                    pass
+
+
+        elif menu == 3:
+            os.system('cls')
+            print("--------TWOJE KARY ZA PRZEKROCZENIE TERMINU--------")
+            penalty = user.user_penalty(user_id)
+            if penalty[0] == 1:
+                os.system('cls')
+                pass
+
+        elif menu == 4:
+
+            os.system('cls')
+            menu_reader(name, user_id)
+            break
+
 
 def menu_librarian_book_edition(book_id, bk_isbn, bk_title, bk_pages, bk_cover, bk_book_genre, bk_thumbnail,
                                 bk_publisher, bk_published_year, bk_description, bk_state, name, user_id):
@@ -140,6 +273,7 @@ def menu_librarian_book_edition(book_id, bk_isbn, bk_title, bk_pages, bk_cover, 
             print("--------PRZEJDŹ DO MENU GŁÓWNEGO--------")
             os.system('cls')
             menu_librarian(name, user_id)
+            break
 
 
 def menu_librarian_user_edition(user_id, us_name, us_surname, us_email, name):
@@ -201,7 +335,7 @@ def menu_librarian_user_edition(user_id, us_name, us_surname, us_email, name):
             os.system('cls')
             print("--------WYŚWIETL KARY UŻYTKOWNIKA ZA PRZEKROCZENIE TERMINU--------")
             penalty = user.user_penalty(user_id)
-            print(penalty)
+
             if penalty[0] == 1:
                 os.system('cls')
                 pass
@@ -209,7 +343,91 @@ def menu_librarian_user_edition(user_id, us_name, us_surname, us_email, name):
         elif menu == 5:
             print("--------PRZEJDŹ DO MENU BIBLIOTEKARZA--------")
             os.system('cls')
-            menu_librarian(name, user_id)
+
+            break
+def menu_reader(name, user_id):
+    running = True
+
+    while running:
+
+        os.system('cls')
+        print(f"Witaj {name}! Co nowego w świecie czytelnika?")
+        print("\n------- KSIĄŻKI ------- "
+              "\n 1 - Wyszukaj książkę,"
+              "\n 2 - Edytuj książkę,"
+              "\n 3 - Twoja karta biblioteczna"
+
+              "\n"
+              "\n------- UŻYTKOWNIK ------- "
+              "\n 4 - Zaktualizuj swoje dane,"
+              "\n"
+              "\n------- AUTORZY ------- "
+              "\n 5 - Wyszukaj autora,"
+              "\n"
+              "\n------- WYJŚCIE -------  "
+              "\n 6 - Wyloguj się.")
+
+        print("\n")
+        menu = int(input("Wybierz opcję z menu: \n"))
+
+        # Wyszukaj książkę
+        if menu == 1:
+            os.system('cls')
+            print("--------WYSZUKAJ KSIĄŻKĘ--------")
+            search = 2
+            while search == 2:
+                os.system('cls')
+                b = Book()
+                search = b.book_search()
+
+            if search == 1:
+                os.system('cls')
+                pass
+
+
+
+        # Edytuj książkę
+        elif menu == 2:
+            os.system('cls')
+            print("--------EDYTUJ KSIĄŻKE--------")
+
+            b1 = Book()
+            search = b1.book_selection()
+            menu_reader_book_edition(search[0], search[1], search[2], search[3], search[4], search[5],
+                                        search[6], search[7], search[8], search[9], search[10], name, user_id)
+
+        # Twoja karta biblioteczna
+        elif menu == 3:
+            os.system('cls')
+            reader_library_card(name,user_id)
+
+
+        # Edytuj użytkownika
+        elif menu == 4:
+            os.system('cls')
+            print("--------ZAKTUALIZUJ SWOJE DANE--------")
+            user = User()
+            updating = user.user_update(user.user_search(user_id))
+            if updating == 1:
+                os.system('cls')
+                pass
+
+        # Wyszukaj autora
+        elif menu == 5:
+            os.system('cls')
+            print("--------WYSZKUAJ AUTORA--------")
+            author = Author()
+            find = author.author_find()
+            if find == 1:
+                os.system('cls')
+                pass
+
+        # Opuść bibliotekę
+        elif menu == 6:
+            os.system('cls')
+            print("Do zobaczenia wkrótce!")
+            running = False
+            break
 
 
 def menu_librarian(name, user_id):
@@ -248,7 +466,7 @@ def menu_librarian(name, user_id):
             print("--------WYSZUKAJ KSIĄŻKĘ--------")
             search = 2
             while search == 2:
-                os.system('csl')
+                os.system('cls')
                 b = Book()
                 search = b.book_search()
 
@@ -375,6 +593,8 @@ def menu_librarian(name, user_id):
         elif menu == 11:
             os.system('cls')
             print("Do zobaczenia wkrótce!")
+            running = False
+
             break
 
 
@@ -414,7 +634,7 @@ def menu_library():
                         menu_librarian(name=login[2], user_id=login[3])
 
                     elif login[1] == 0:
-                        menu_reader(name=login[2])
+                        menu_reader(name=login[2], user_id=login[3])
 
 
             elif menu == 2:

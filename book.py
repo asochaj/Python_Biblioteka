@@ -68,10 +68,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -97,10 +94,7 @@ class Book:
         #Tworzymy powiązanie pomiędzy book_id a author_id w bazie w tabeli tblAuthor_Book
         for i_author_id in self.author_id:
             # Połączenie do SQL
-            db_msql = pyodbc.connect("Driver={SQL Server};"
-                                     "Server=DELLV3510-01\SQLEXPRESS;"
-                                     "Database=biblioteka;"
-                                     "Trusted_connection =yes;")
+            db_msql = pyodbc.connect(serwer)
             # Cursor
             cursorMS = db_msql.cursor()
             # Kwerenda dodająca atrybuty użytkownika do bazy
@@ -132,10 +126,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -193,10 +184,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -238,10 +226,7 @@ class Book:
 
     def author_id_search(self,author_name):
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
         # Cursor
         cursorMS = db_msql.cursor()
 
@@ -279,10 +264,7 @@ class Book:
         state = int(input("Wprowadż status 1 - dostępna, 2 - zarezerwowana, 3 - wypożyczona: "))
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -326,10 +308,7 @@ class Book:
         book_id = int(input("Wprowadź id_książki: "))
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -403,10 +382,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -459,10 +435,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -518,10 +491,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -555,10 +525,7 @@ class Book:
         # metoda przypisana do klasy book!
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -615,10 +582,7 @@ class Book:
 
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -668,10 +632,7 @@ class Book:
         # metoda przypisana do klasy book!
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -724,10 +685,7 @@ class Book:
         self.book_id = book_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()

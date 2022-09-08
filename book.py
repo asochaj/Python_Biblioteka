@@ -173,8 +173,6 @@ class Book:
         print(self.book_id)
         updated_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
                           self.published_year,self.description,self.state]
-        print(f"Old parameter{old_parameters}")
-        print(f"Updated parameter{updated_parameters}")
 
         new_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
                           self.published_year,self.description,self.state]

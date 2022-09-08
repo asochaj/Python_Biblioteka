@@ -213,7 +213,7 @@ def menu_librarian_user_edition(user_id,us_name,us_surname,us_email,name):
 
 def menu_librarian(name,user_id):
     running = True
-
+    user_id = user_id #gdzieś zniknąłmiuser idw tej metodzie i nie mogęgo znaleźć. Czy możeszsprawdzić w swoim kodzie,gdzie on był wpisany?
     while running:
 
         os.system('cls')

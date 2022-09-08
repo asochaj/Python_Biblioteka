@@ -157,12 +157,12 @@ class Book:
         """Wywołanie metody powoduje aktualizację danych dotyczących kasiążki o wskazanym book_id"""
         # Opcja powinna być dostępna tylko po wejściu w daną książkę!
 
-        old_parameters = (self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
-                          self.published_year,self.description,self.state)
+         old_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
+                          self.published_year,self.description,self.state]
 
         self.ISBN = input("Zaktualizuj kod ISBN książki lub kliknij enter: ")
         self.title = input("Zaktualizuj tytuł książki lub kliknij enter: ")
-        self.pages = int(input("Zaktualizuj liczbę stron książki lub kliknij enter: "))
+        self.pages = int(input("Zaktualizuj ilość stron: "))
         self.cover = input("Zaktualizuj rodzaj okładki twarda (h) czy miękka (s) lub kliknij enter: ")
         self.book_genre = input("Zaktualizuj gatunek książki lub kliknij enter: ")
         self.thumbnail = input("Zaktualizuj adres do ikony książki lub kliknij enter: ")
@@ -170,18 +170,20 @@ class Book:
         self.published_year = int(input("Zaktualizuj rok wydania książki lub kliknij enter: "))
         self.description = input("Zaktualizuj opis lub kliknij enter: ")
         self.state = int(input("Zaktualizuj status książki 1 - dostępna, 2 - zarezerwowana, 3 - wypożyczona lub kliknij enter: "))
+        print(self.book_id)
+        updated_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
+                          self.published_year,self.description,self.state]
+        print(f"Old parameter{old_parameters}")
+        print(f"Updated parameter{updated_parameters}")
 
-        updated_parameters = (self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
-                          self.published_year,self.description,self.state)
-
-        new_parameters = ()
+        new_parameters = [self.ISBN,self.title,self.pages,self.cover,self.book_genre,self.thumbnail,self.publisher,
+                          self.published_year,self.description,self.state]
 
         for i in range(len(updated_parameters)):
             if updated_parameters[i] == "":
-                new_parameters = new_parameters + old_parameters[i]
+                new_parameters[i] = old_parameters[i]
             else:
-                new_parameters = new_parameters + updated_parameters[i]
-
+                new_parameters[i] = updated_parameters[i]
 
         # Połączenie do SQL
         db_msql = pyodbc.connect(serwer)

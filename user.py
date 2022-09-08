@@ -5,7 +5,10 @@ import pandas as pd
 import time
 import os
 
-
+serwer = "Driver={SQL Server}; " \
+             "Server=.\SQLEXPRESS; " \
+             "Database=biblioteka; " \
+             "Trusted_connection =yes; "
 
 
 class User:
@@ -54,10 +57,7 @@ class User:
 
 
         #Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         #Cursor
         cursorMS = db_msql.cursor()
@@ -122,10 +122,7 @@ class User:
         self.user_id = user_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -167,10 +164,7 @@ class User:
         self.user_id = user_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -253,10 +247,7 @@ class User:
 
 
         #Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         #Cursor
         cursorMS = db_msql.cursor()
@@ -295,10 +286,7 @@ class User:
         self.user_id = user_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -371,10 +359,7 @@ class User:
         self.user_id = user_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -450,10 +435,7 @@ class User:
         """Wywołanie metody powoduje wydłużenie wypożyczenia książki o kolejny miesiąc, tj. zwiększenie atrybutu endtime o 31 dni.  """
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -507,10 +489,7 @@ class User:
         pomnożona przez 2zł, tj. 2zł za każdy dzień wykroczenia dla każdej książki. """
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -591,10 +570,7 @@ class User:
         haslo = self.password
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -669,10 +645,7 @@ class User:
         haslo = self.password
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -697,10 +670,7 @@ class User:
         email = input("Wprowadż adres e-mail użytkownika: ")
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -740,7 +710,6 @@ class User:
 
         if back == 1:
             return 1
-
 
 
 

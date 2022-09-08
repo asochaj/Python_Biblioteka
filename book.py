@@ -7,6 +7,12 @@ import time
 
 import pyodbc
 
+serwer = "Driver={SQL Server}; " \
+             "Server=.\SQLEXPRESS; " \   #zmiana - nie trzeba wpisaywać nazwy komputera :)
+             "Database=biblioteka; " \
+             "Trusted_connection =yes; "
+
+
 #Utworzenie klasy Book wraz z parametrami inicjalizującymi
 class Book:
     def __init__(self, book_id=0, ISBN="", title="", pages="",
@@ -47,6 +53,9 @@ class Book:
         author_name_first = input("Wprowadż nazwę pierwszego autora: ")
         author_name = author_name + (author_name_first,)
         author_name_next = input("Wprowadż nazwę kolejnego autora lub 0: ")
+        if author_name_next == '0':
+            author_name = f"('{author_name_first}')"
+
         while author_name_next != '0':
             author_name = author_name + (author_name_next,)
             author_name_next = input("Wprowadż nazwę kolejnego autora lub 0: ")

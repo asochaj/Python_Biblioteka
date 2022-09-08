@@ -5,7 +5,8 @@ import os
 import time
 
 
-def menu_librarian_book_edition(book_id,bk_isbn, bk_title,bk_pages, bk_cover, bk_book_genre, bk_thumbnail, bk_publisher, bk_published_year, bk_description, bk_state, name,user_id):
+def menu_librarian_book_edition(book_id, bk_isbn, bk_title, bk_pages, bk_cover, bk_book_genre, bk_thumbnail,
+                                bk_publisher, bk_published_year, bk_description, bk_state, name, user_id):
     os.system('cls')
     running = True
     while running:
@@ -39,8 +40,10 @@ def menu_librarian_book_edition(book_id,bk_isbn, bk_title,bk_pages, bk_cover, bk
         print("\n")
         menu = int(input("Wybierz opcję edycji książki: \n"))
 
-        book = Book(book_id = book_id, ISBN = bk_isbn, title = bk_title, pages = bk_pages, cover = bk_cover, book_genre=bk_book_genre, thumbnail= bk_thumbnail,
-                    publisher=bk_publisher, published_year=bk_published_year, description=bk_description, state=bk_state)
+        book = Book(book_id=book_id, ISBN=bk_isbn, title=bk_title, pages=bk_pages, cover=bk_cover,
+                    book_genre=bk_book_genre, thumbnail=bk_thumbnail,
+                    publisher=bk_publisher, published_year=bk_published_year, description=bk_description,
+                    state=bk_state)
 
         if menu == 1:
             os.system('cls')
@@ -115,7 +118,6 @@ def menu_librarian_book_edition(book_id,bk_isbn, bk_title,bk_pages, bk_cover, bk
             user.user_find()
             user_idd = int(input("\nPodaj ID użytkownika, dla którego chcesz odwołać rezerwacje książki \n"))
 
-
             book_back = book.book_return_booking(user_idd)
             if book_back == 1:
                 os.system('cls')
@@ -137,10 +139,10 @@ def menu_librarian_book_edition(book_id,bk_isbn, bk_title,bk_pages, bk_cover, bk
         elif menu == 10:
             print("--------PRZEJDŹ DO MENU GŁÓWNEGO--------")
             os.system('cls')
-            menu_librarian(name)
+            menu_librarian(name, user_id)
 
 
-def menu_librarian_user_edition(user_id,us_name,us_surname,us_email,name):
+def menu_librarian_user_edition(user_id, us_name, us_surname, us_email, name):
     os.system('cls')
     running = True
     while running:
@@ -207,11 +209,10 @@ def menu_librarian_user_edition(user_id,us_name,us_surname,us_email,name):
         elif menu == 5:
             print("--------PRZEJDŹ DO MENU BIBLIOTEKARZA--------")
             os.system('cls')
-            menu_librarian(name)
+            menu_librarian(name, user_id)
 
 
-
-def menu_librarian(name,user_id):
+def menu_librarian(name, user_id):
     running = True
 
     while running:
@@ -221,7 +222,7 @@ def menu_librarian(name,user_id):
         print("\n------- KSIĄŻKI ------- "
               "\n 1 - Wyszukaj książkę,"
               "\n 2 - Edytuj książkę,"
-              
+
               "\n"
               "\n------- UŻYTKOWNICY ------- "
               "\n 3 - Wyszukaj użytkownika,"
@@ -262,11 +263,10 @@ def menu_librarian(name,user_id):
             os.system('cls')
             print("--------EDYTUJ KSIĄŻKE--------")
 
-            
             b1 = Book()
             search = b1.book_selection()
             menu_librarian_book_edition(search[0], search[1], search[2], search[3], search[4], search[5],
-                                        search[6], search[7], search[8], search[9], search[10], name)
+                                        search[6], search[7], search[8], search[9], search[10], name, user_id)
 
 
 
@@ -276,7 +276,7 @@ def menu_librarian(name,user_id):
         elif menu == 3:
             os.system('cls')
             print("--------WYSZUKAJ UŻYTKOWNIKA--------")
-            u1= User()
+            u1 = User()
             search = u1.user_find()
 
             if search == 1:
@@ -291,7 +291,7 @@ def menu_librarian(name,user_id):
             user_id = input("Podaj user_id użytkownika: ")
             u1 = User()
             search = u1.user_search(user_id)
-            menu_librarian_user_edition(search[1],search[0][0],search[0][1],search[0][4],name)
+            menu_librarian_user_edition(search[1], search[0][0], search[0][1], search[0][4], name)
 
         # Dodaj użytkownika
         elif menu == 5:
@@ -393,28 +393,28 @@ def menu_library():
 
             if menu == 1:
                 os.system('cls')
-                #LOGOWANIE DO APLIKACJI
+                # LOGOWANIE DO APLIKACJI
                 print("--------LOGOWANIE--------")
                 email = input("Podaj adres email: ")
                 password = input("Podaj hasło: ")
-                u = User(email = email, password = password)
+                u = User(email=email, password=password)
                 login = u.user_login()
 
-                #Brak użytkownika w bazie"
+                # Brak użytkownika w bazie"
                 if login == 2:
                     pass
 
-                #Niepoprawne hasło
+                # Niepoprawne hasło
                 elif login == 0:
                     pass
 
-                #Logowanie poprawne
+                # Logowanie poprawne
                 elif login[0] == 1:
                     if login[1] == 1:
-                        menu_librarian(name = login[2], user_id=login[3])
+                        menu_librarian(name=login[2], user_id=login[3])
 
                     elif login[1] == 0:
-                        menu_reader(name = login[2])
+                        menu_reader(name=login[2])
 
 
             elif menu == 2:
@@ -424,15 +424,14 @@ def menu_library():
                 u = User()
                 registration = u.user_add()
 
-                #Pomyślne dodanie użytkownika do bazy
+                # Pomyślne dodanie użytkownika do bazy
                 if registration == 1:
                     print("Użytkownik pomyślnie dodany do bazy danych!"
                           "\n Zaloguj się, aby kontynuować na swoim nowym koncie")
                     pass
 
-                #Wprowadzenie błędnych danych
+                # Wprowadzenie błędnych danych
                 elif registration == 0:
-
 
                     pass
 
@@ -462,4 +461,3 @@ def menu_library():
 
 if __name__ == "__main__":
     menu_library()
-

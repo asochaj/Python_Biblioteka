@@ -2,6 +2,12 @@ import pyodbc
 import os
 import time
 
+serwer = "Driver={SQL Server}; " \
+             "Server=.\SQLEXPRESS; " \
+             "Database=biblioteka; " \
+             "Trusted_connection =yes; "
+
+
 class Author:
     def __init__(self,name = "",  birth_date ="", biography = ""):
         self.name = name
@@ -18,10 +24,7 @@ class Author:
         self.biography = input("Wprowadź biografię autora: ")
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -82,10 +85,7 @@ class Author:
         self.author_id = author_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -130,10 +130,7 @@ class Author:
         biography = input("Wprowadż fragment biografii użytkownika: ")
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()
@@ -210,10 +207,7 @@ class Author:
 
 
         #Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         #Cursor
         cursorMS = db_msql.cursor()
@@ -264,10 +258,7 @@ class Author:
         self.author_id = author_id
 
         # Połączenie do SQL
-        db_msql = pyodbc.connect("Driver={SQL Server};"
-                                 "Server=DELLV3510-01\SQLEXPRESS;"
-                                 "Database=biblioteka;"
-                                 "Trusted_connection =yes;")
+        db_msql = pyodbc.connect(serwer)
 
         # Cursor
         cursorMS = db_msql.cursor()

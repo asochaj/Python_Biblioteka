@@ -276,6 +276,7 @@ def menu_librarian_book_edition(book_id, bk_isbn, bk_title, bk_pages, bk_cover, 
             break
 
 
+
 def menu_librarian_user_edition(user_id, us_name, us_surname, us_email, name):
     os.system('cls')
     running = True
@@ -319,7 +320,7 @@ def menu_librarian_user_edition(user_id, us_name, us_surname, us_email, name):
             os.system('cls')
             print("--------WYŚWIETL WYPOŻYCZONE KSIĄŻKI--------")
             borrowing = user.user_borrowing(user_id)
-            print(f"BORROWING PRZYJMUJE WARTOŚĆ {borrowing}")
+
             if borrowing == 2:
                 os.system('cls')
                 pass
@@ -661,11 +662,11 @@ def menu_library():
                 print("--------WYSZUKAJ SWOJĄ ULUBIONĄ KSIĄŻKĘ--------")
                 search = 2
                 while search == 2:
-                    os.system('csl')
+                    os.system('cls')
                     b = Book()
                     search = b.book_search()
                 if search == 1:
-                    os.system('csl')
+                    os.system('cls')
                     pass
 
 

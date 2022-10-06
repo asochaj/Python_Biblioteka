@@ -433,7 +433,7 @@ def menu_reader(name, user_id):
 
 def menu_librarian(name, user_id):
     running = True
-
+    user_id = user_id #gdzieś zniknąłmiuser idw tej metodzie i nie mogęgo znaleźć. Czy możeszsprawdzić w swoim kodzie,gdzie on był wpisany?
     while running:
 
         os.system('cls')
